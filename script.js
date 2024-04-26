@@ -92,7 +92,7 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
   // Matching Strategy
   if (e.target.classList.contains('nav__link')) {
     const id = e.target.getAttribute('href');
-    console.log(id);
+    // console.log(id);
     document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
   }
 });
@@ -164,7 +164,7 @@ nav.addEventListener('mouseout', handleHover.bind(1));
 
 const header = document.querySelector('.header');
 const navHeight = nav.getBoundingClientRect().height;
-console.log(navHeight);
+// console.log(navHeight);
 
 const stickyNav = function (entries) {
   const [entry] = entries;
@@ -486,11 +486,11 @@ console.log(h1.parentElement.children);
 */
 
 document.addEventListener('DOMContentLoaded', function (e) {
-  console.log('HTML parsed and DOM tree built!', e);
+  // console.log('HTML parsed and DOM tree built!', e);
 });
 
 window.addEventListener('load', function (e) {
-  console.log('Page fully loaded', e);
+  // console.log('Page fully loaded', e);
 });
 
 // window.addEventListener('beforeunload', function (e) {
