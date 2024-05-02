@@ -1,5 +1,5 @@
 'use strict';
-
+/*
 const Person = function (firstName, birthYear) {
   this.firstName = firstName;
   this.birthYear = birthYear;
@@ -113,7 +113,6 @@ bmw.brake();
 mercedes.accelerate();
 mercedes.accelerate();
 mercedes.brake();
-*/
 
 // class expression
 //const PersonCl = class {};
@@ -194,7 +193,7 @@ console.log(account.latest);
 
 account.latest = 50;
 console.log(account.movements);
-*/
+
 
 const PersonProto = {
   calcAge() {
@@ -260,3 +259,39 @@ const ford = new CarCl('Ford', 120);
 console.log(ford.speedUS);
 ford.accelerate();
 */
+
+/////////////////////////////////////////////////////////////////////
+// Inheritance Between "Classes": Constructor Functions
+const Person = function (firstName, birthYear) {
+  this.firstName = firstName;
+  this.birthYear = birthYear;
+};
+
+Person.prototype.calcAge = function () {
+  console.log(2037 - this.birthYear);
+};
+
+const Student = function (firstName, birthYear, course) {
+  Person.call(this, firstName, birthYear);
+  this.course = course;
+};
+
+Student.prototype = Object.create(Person.prototype);
+
+Student.prototype.introduce = function () {
+  console.log(`My name is ${this.fistName} and I study ${this.course}`);
+};
+const mike = new Student('mike', 2020, 'Computer Science');
+
+mike.introduce();
+mike.calcAge();
+
+console.log(mike.__proto__);
+console.log(mike.__proto__.__proto__);
+
+console.log(mike instanceof Student);
+console.log(mike instanceof Person);
+console.log(mike instanceof Object);
+
+Student.prototype.constructor = Student;
+console.dir(Student.prototype.constructor);
