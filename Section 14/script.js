@@ -22,6 +22,11 @@ console.log(matilda, jack);
 
 console.log(jonas instanceof Person);
 
+Person.hey = function () {
+  console.log('Hey there 👋');
+};
+//////////////////////////////////////////////
+
 // Prototypes
 
 console.log(Person.prototype);
@@ -119,7 +124,7 @@ class PersonCl {
     this.firstName = firstName;
     this.birthYear = birthYear;
   }
-
+  //Instance methods
   // Methods will be added to .prototype property
   calcAge() {
     console.log(2037 - this.birthYear);
@@ -143,6 +148,11 @@ class PersonCl {
   get fullName() {
     return this._fullName;
   }
+
+  // Static method
+  static hey() {
+    console.log('Hey there 👋=');
+  }
 }
 const jessica = new PersonCl('Jessica', 1996);
 console.log(jessica);
@@ -151,9 +161,9 @@ console.log(jessica.age);
 
 console.log(jessica.__proto__ == PersonCl.prototype);
 
-PersonCl.prototype.greet = function () {
-  console.log(`Hey ${this.firstName}`);
-};
+// PersonCl.prototype.greet = function () {
+//   console.log(`Hey ${this.firstName}`);
+// };
 jessica.greet();
 
 // 1. Classes are NOT hoisted
@@ -162,6 +172,11 @@ jessica.greet();
 
 const walter = new PersonCl('Walter White', 1965);
 
+PersonCl.hey();
+
+/*
+/////////////////////////////////////
+// Setters and Getters 
 const account = {
   owner: 'jonas',
   movements: [200, 530, 120, 300],
@@ -179,3 +194,4 @@ console.log(account.latest);
 
 account.latest = 50;
 console.log(account.movements);
+*/
